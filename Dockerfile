@@ -10,9 +10,6 @@ RUN apt-get update && \
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
     ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
-COPY cacerts /usr/local/share/ca-certificates/
-RUN update-ca-certificates
-
 COPY vhosts/default.conf /etc/apache2/sites-enabled/
 COPY certs/ /etc/apache2/ssl/
 
